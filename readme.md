@@ -2,12 +2,12 @@
 
 Generates a stateless password from the following properties
 
-- **environment** - Can be either `ssh` or `web` [Open an issue]() if you have more use cases that make sense like `tv`, `desktop` or something
+- **environment** - Can be either `ssh` or `web`. If you have more viable use cases that make sense like `tv`, `desktop`, feel free to open an issue and we can discuss it.
 - **service** - A service name like `google.com` or `your-company`
 - **account** - An account name like `bob`
 - **masterPassword** - A Password which you should have memorized and not saved anywhere (except physically)
 
-The password is reproducable given these properties but **cannot** be reproduced with one part missing. It cannot be reverse-engineered.
+The password **is reproducable** given these properties but **cannot** be reproduced with one part missing. It cannot be reverse-engineered.
 
 ## Installation
 
@@ -27,7 +27,7 @@ $ pwdx web google.com bob@gmail.com
 > Serializable string (save to your password list): web/google.com/bob@gmail.com/16/digits:true/symbols:true
 ```
 
-Besides your new generated password, it also generates a serializable string which you can save to your a google docs sheet or whatever you use to store notes (Try [Notion](https://www.notion.so/)!) and then use it to recreate the password using the cli:
+Besides your newly generated password, it also generates a serializable string which you can save to a google docs sheet or whatever you use to store notes (If you don't have one, try [Notion](https://www.notion.so/)!) and then use it to recreate the password using the CLI:
 
 ```bash
 $ pwdx web/google.com/bob@gmail.com/16/digits:true/symbols:true
@@ -35,7 +35,7 @@ $ pwdx web/google.com/bob@gmail.com/16/digits:true/symbols:true
 > Your generated password is: hFuUpOyHDFSKN5LD
 ```
 
-If you want you can also modify different generation attributes like the following:
+There are different properties to modify the password:
 
 - **--length** (default: 16) - Password length
 - **--no-digits** (default: false) - Disable generating a password with digits
@@ -52,7 +52,7 @@ $ pwdx web google.com bob@gmail.com --no-symbols --length=6
 
 ## Algorithm
 
-The password encryption process is using the [pbkdf2](https://wikipedia.org/wiki/PBKDF2) algorithm from standard node [crypto](https://nodejs.org/api/crypto.html#crypto_crypto_pbkdf2_password_salt_iterations_keylen_digest_callback) package. The generated buffer is then mapped onto a base85 (with default settings) charset to generate your password.
+The password encryption process is using the [pbkdf2](https://wikipedia.org/wiki/PBKDF2) algorithm from the standard node [crypto](https://nodejs.org/api/crypto.html#crypto_crypto_pbkdf2_password_salt_iterations_keylen_digest_callback) package. The generated buffer is then mapped onto a base85 (with default settings) charset to generate your password.
 
 ## Author
 
