@@ -1,3 +1,4 @@
+#!/usr/bin/env node
 import arg from 'arg'
 import prompts from 'prompts'
 import genpw, {
