@@ -1,5 +1,11 @@
 # pwdx [![NPM version][version-image]][version-url]
 
+A _simple_, _stateless_ and _reproducable_ password generator made for developers
+
+**Why would I want this?** - You want to memorize one password but you don't trust every provider for keeping their passwords secure. Countless times [big providers](https://money.cnn.com/2017/10/03/technology/business/yahoo-breach-3-billion-accounts/index.html) have been hacked and your password is now exposed to the public. Once that happens, a hacker can login to all your other accounts because you likely have the same password. This module gives a reliable way to create a different password for each service but still allows the use of one master password.
+
+## How it works
+
 Generates a stateless password from the following properties
 
 - **environment** - Can be either `ssh` or `web`. If you have more viable use cases that make sense like `tv`, `desktop`, feel free to open an issue and we can discuss it.
